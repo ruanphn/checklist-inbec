@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // Caminho relativo para funcionar perfeitamente no GitHub Pages (ex: /nome-do-repo/)
+  base: '/checklist-inbec/', // Caminho exato do repositório no GitHub Pages
   plugins: [
     react(),
     VitePWA({
