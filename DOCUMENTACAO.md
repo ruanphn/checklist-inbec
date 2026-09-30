@@ -1,6 +1,6 @@
 # tarefinhas — Checklist de Atividades
 
-> Aplicativo de checklist de atividades diárias com interface moderna, persistência local em `localStorage` e esteira automatizada de deploy para o **GitHub Pages**.
+> Aplicativo de checklist de atividades diárias com interface moderna, persistência local em `localStorage`, suporte a instalação como aplicativo e esteira automatizada de deploy para o **GitHub Pages**.
 
 ---
 
@@ -10,8 +10,9 @@
 3. [Estrutura do Projeto](#-estrutura-do-projeto)
 4. [Funcionalidades Implementadas](#-funcionalidades-implementadas)
 5. [Persistência de Dados](#-persistência-de-dados)
-6. [Como Executar Localmente](#-como-executar-localmente)
-7. [Como Publicar no GitHub Pages](#-como-publicar-no-github-pages)
+6. [Como Instalar no Dispositivo](#-como-instalar-no-dispositivo)
+7. [Como Executar Localmente](#-como-executar-localmente)
+8. [Como Publicar no GitHub Pages](#-como-publicar-no-github-pages)
 
 ---
 
@@ -20,6 +21,7 @@
 Este projeto foi construído para ser uma solução simples, direta e funcional para o gerenciamento de tarefas do dia a dia:
 - **Simplicidade de Uso**: Interface limpa e intuitiva para cadastro e acompanhamento de tarefas.
 - **Independência de Backend**: Totalmente autocontido, utilizando o armazenamento local do navegador (`localStorage`).
+- **Instalável**: Suporte a PWA, permitindo que o usuário instale como app nativo no celular ou computador.
 - **Responsivo**: Adaptável para telas de celular e desktop.
 - **Publicação Ágil**: Configurado para deploy contínuo gratuito no GitHub Pages através do GitHub Actions.
 
@@ -31,6 +33,7 @@ Este projeto foi construído para ser uma solução simples, direta e funcional 
 * **Ferramenta de Build**: [Vite](https://vitejs.dev/)
 * **Estilização**: **CSS Puro** com Variáveis CSS
 * **Ícones**: [Lucide React](https://lucide.dev/)
+* **PWA & Cache**: `vite-plugin-pwa` (Workbox)
 * **CI/CD**: GitHub Actions (`deploy-pages`)
 
 ---
@@ -49,13 +52,13 @@ TODO/
 ├── src/
 │   ├── components/
 │   │   ├── FilterTabs.tsx        # Abas de filtro (Todas, Pendentes, Concluídas) e busca
-│   │   ├── Header.tsx            # Cabeçalho com título e data atual
+│   │   ├── Header.tsx            # Cabeçalho com título, data e botão de instalação
 │   │   ├── TaskForm.tsx          # Campo de texto e botão para criar novas tarefas
 │   │   ├── TaskItem.tsx          # Item individual da lista com checkbox e lixeira
 │   │   ├── TaskList.tsx          # Renderizador da lista e estados vazios (empty state)
 │   │   └── TaskProgress.tsx      # Barra de progresso visual (% concluída)
 │   ├── hooks/
-│   │   ├── usePWA.ts             # Estado de conectividade
+│   │   ├── usePWA.ts             # Detecção de instalação e estado de conectividade
 │   │   └── useTasks.ts           # Lógica das tarefas, filtros, busca e persistência
 │   ├── types/
 │   │   └── task.ts               # Tipos TypeScript (Task e TaskFilter)
@@ -91,6 +94,8 @@ TODO/
    * Ação rápida em botão dedicado para limpar tarefas antigas concluídas.
 7. **Pesquisa Instantânea**:
    * Barra de busca rápida para localizar tarefas pelo texto.
+8. **Instalação Rápida**:
+   * Botão direto no topo da tela para instalar o app no aparelho.
 
 ---
 
@@ -99,6 +104,24 @@ TODO/
 * Os dados são armazenados no `localStorage` sob a chave `tarefinhas_tasks_v1`.
 * Qualquer inserção, alteração ou exclusão é sincronizada instantaneamente.
 * Quando o usuário fecha o navegador ou reinicia o computador, suas tarefas permanecem salvas.
+
+---
+
+## 📲 Como Instalar no Dispositivo
+
+### No Computador (Google Chrome, Microsoft Edge, Brave):
+* Ao acessar o app, clique no botão **"Instalar App"** no topo da tela ou no ícone de instalação na barra de endereço do navegador.
+* O app será adicionado aos programas do computador e abrirá em uma janela própria dedicada.
+
+### No Celular Android (Google Chrome):
+* Acesse o link publicado no navegador do celular.
+* Clique no botão **"Instalar App"** no topo, ou toque no menu de 3 pontos do Chrome e selecione **"Adicionar à tela inicial"** ou **"Instalar aplicativo"**.
+
+### No iPhone / iPad (Safari):
+* Abra o link no Safari.
+* Toque no botão de **Compartilhar** (ícone de quadrado com seta para cima).
+* Role para baixo e selecione **"Adicionar à Tela de Início"**.
+* O ícone do app aparecerá na tela inicial do iOS.
 
 ---
 

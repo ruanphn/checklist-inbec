@@ -23,11 +23,15 @@ export function App() {
     progressPercentage,
   } = useTasks();
 
-  const { isOffline } = usePWA();
+  const { isInstallable, isOffline, installApp } = usePWA();
 
   return (
     <main className="app-container">
-      <Header isOffline={isOffline} />
+      <Header
+        isInstallable={isInstallable}
+        isOffline={isOffline}
+        onInstall={installApp}
+      />
 
       <section className="main-card">
         <TaskProgress
