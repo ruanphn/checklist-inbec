@@ -1,30 +1,26 @@
-# 🌿 Minhas Tarefas — Checklist Pastel (PWA & GitHub Pages)
+# tarefinhas — Checklist de Atividades
 
-> Aplicativo de checklist de atividades diárias com estética refinada em tons pastéis, suporte completo a PWA (Progressive Web App) para desktop e mobile, persistência local em `localStorage` e esteira automatizada de deploy para o **GitHub Pages**.
+> Aplicativo de checklist de atividades diárias com interface moderna, persistência local em `localStorage` e esteira automatizada de deploy para o **GitHub Pages**.
 
 ---
 
 ## 📋 Sumário
-1. [Visão Geral e Objetivos](#-visão-geral-e-objetivos)
+1. [Visão Geral](#-visão-geral)
 2. [Stack Tecnológica](#-stack-tecnológica)
-3. [Design System & UI em Tons Pastéis](#-design-system--ui-em-tons-pastéis)
-4. [Estrutura do Projeto](#-estrutura-do-projeto)
-5. [Funcionalidades Implementadas](#-funcionalidades-implementadas)
-6. [Persistência de Dados](#-persistência-de-dados)
-7. [Configuração PWA (Web & Mobile)](#-configuração-pwa-web--mobile)
-8. [Como Executar Localmente](#-como-executar-localmente)
-9. [Como Publicar no GitHub Pages](#-como-publicar-no-github-pages)
-10. [Como Instalar no Dispositivo](#-como-instalar-no-dispositivo)
+3. [Estrutura do Projeto](#-estrutura-do-projeto)
+4. [Funcionalidades Implementadas](#-funcionalidades-implementadas)
+5. [Persistência de Dados](#-persistência-de-dados)
+6. [Como Executar Localmente](#-como-executar-localmente)
+7. [Como Publicar no GitHub Pages](#-como-publicar-no-github-pages)
 
 ---
 
-## 🎯 Visão Geral e Objetivos
+## 🎯 Visão Geral
 
-Este projeto foi construído para ser uma solução simples, direta e elegante para o gerenciamento de tarefas do dia a dia, atendendo aos seguintes pilares:
-- **Simplicidade de Uso**: Interface limpa e intuitiva, inspirada em planners minimalistas de produtividade.
+Este projeto foi construído para ser uma solução simples, direta e funcional para o gerenciamento de tarefas do dia a dia:
+- **Simplicidade de Uso**: Interface limpa e intuitiva para cadastro e acompanhamento de tarefas.
 - **Independência de Backend**: Totalmente autocontido, utilizando o armazenamento local do navegador (`localStorage`).
-- **Resiliência Offline**: Graças ao Service Worker e cache do PWA, o aplicativo continua abrindo e funcionando perfeitamente mesmo sem internet.
-- **Portabilidade**: Responsivo para qualquer tamanho de tela e instalável como app nativo em computadores (Windows/Mac/Linux) e smartphones (Android/iOS).
+- **Responsivo**: Adaptável para telas de celular e desktop.
 - **Publicação Ágil**: Configurado para deploy contínuo gratuito no GitHub Pages através do GitHub Actions.
 
 ---
@@ -32,34 +28,10 @@ Este projeto foi construído para ser uma solução simples, direta e elegante p
 ## 🛠️ Stack Tecnológica
 
 * **Framework Base**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-* **Ferramenta de Build**: [Vite](https://vitejs.dev/) (ultrarrápido, modular e leve)
-* **Estilização**: **CSS Puro** com Variáveis CSS (*Design Tokens*), sem frameworks pesados
-* **Ícones**: [Lucide React](https://lucide.dev/) (ícones vetoriais modernos e leves)
-* **PWA & Cache**: [`vite-plugin-pwa`](https://vite-pwa-org.netlify.app/) com Workbox
+* **Ferramenta de Build**: [Vite](https://vitejs.dev/)
+* **Estilização**: **CSS Puro** com Variáveis CSS
+* **Ícones**: [Lucide React](https://lucide.dev/)
 * **CI/CD**: GitHub Actions (`deploy-pages`)
-
----
-
-## 🎨 Design System & UI em Tons Pastéis
-
-### Por que tons pastéis são uma boa escolha para UI?
-* **Redução da Fadiga Visual**: Diferente de cores ultra-saturadas (como azuis elétricos ou vermelhos fortes), tons pastéis trazem serenidade e conforto para uso prolongado.
-* **Sensação Acolhedora (*Cozy Productivity*)**: Estimula a organização sem passar a sensação de urgência ou pressão corporativa.
-* **Hierarquia Clara e Acessibilidade (WCAG)**: Para evitar o erro comum de baixo contraste em designs pastéis, as cores pastéis foram aplicadas como **superfícies, cartões, fundos de status e bordas sutis**, enquanto todo o texto principal utiliza um tom grafite escuro (`#24332C`), garantindo excelente legibilidade.
-
-### Paleta de Cores do Projeto:
-
-| Variável CSS | Cor / Hex | Aplicação |
-| :--- | :--- | :--- |
-| `--bg-page` | `#F6F8F6` | Fundo da tela em degradê menta ultra-suave |
-| `--bg-card` | `#FFFFFF` | Cartão principal com borda suave |
-| `--pastel-sage` | `#84AC8A` | Verde sálvia: botão principal, checkboxes concluídos |
-| `--pastel-sage-light` | `#EBF3ED` | Fundo da barra de progresso e badge ativo |
-| `--pastel-peach` | `#F6BD60` | Pêssego/damasco: botão de instalação PWA e destaques |
-| `--pastel-rose` | `#F28482` | Coral suave: botão de excluir e aviso de modo offline |
-| `--text-main` | `#24332C` | Grafite escuro para máxima legibilidade (WCAG AAA) |
-| `--text-secondary` | `#586B62` | Cinza sálvia intermediário para datas e subtítulos |
-| `--text-done` | `#97A8A0` | Cinza atenuado para tarefas concluídas (com tachado) |
 
 ---
 
@@ -72,29 +44,29 @@ TODO/
 │       └── deploy.yml            # Esteira automática do GitHub Actions para o Pages
 ├── public/
 │   ├── favicon.svg               # Ícone SVG do app e favicon
-│   ├── pwa-192x192.svg           # Ícone padrão PWA para dispositivos móveis
-│   └── pwa-512x512.svg           # Ícone PWA de alta resolução e maskable
+│   ├── pwa-192x192.svg           # Ícone padrão
+│   └── pwa-512x512.svg           # Ícone de alta resolução
 ├── src/
 │   ├── components/
 │   │   ├── FilterTabs.tsx        # Abas de filtro (Todas, Pendentes, Concluídas) e busca
-│   │   ├── Header.tsx            # Cabeçalho com data, status offline e botão de instalação
+│   │   ├── Header.tsx            # Cabeçalho com título e data atual
 │   │   ├── TaskForm.tsx          # Campo de texto e botão para criar novas tarefas
 │   │   ├── TaskItem.tsx          # Item individual da lista com checkbox e lixeira
 │   │   ├── TaskList.tsx          # Renderizador da lista e estados vazios (empty state)
 │   │   └── TaskProgress.tsx      # Barra de progresso visual (% concluída)
 │   ├── hooks/
-│   │   ├── usePWA.ts             # Detecção de instalação PWA e estado de rede (online/offline)
+│   │   ├── usePWA.ts             # Estado de conectividade
 │   │   └── useTasks.ts           # Lógica das tarefas, filtros, busca e persistência
 │   ├── types/
 │   │   └── task.ts               # Tipos TypeScript (Task e TaskFilter)
 │   ├── App.tsx                   # Componente central
-│   ├── index.css                 # Folha de estilos global e variáveis do design system
+│   ├── index.css                 # Folha de estilos global e variáveis de cores
 │   └── main.tsx                  # Ponto de entrada React
-├── index.html                    # HTML base com meta tags PWA e Google Fonts
+├── index.html                    # HTML base
 ├── package.json                  # Dependências e scripts
 ├── tsconfig.json                 # Configuração TypeScript
-├── vite.config.ts                # Configuração do Vite + Plugin PWA + Caminho relativo
-└── DOCUMENTACAO.md               # Esta documentação completa
+├── vite.config.ts                # Configuração do Vite + Caminho base
+└── DOCUMENTACAO.md               # Esta documentação
 ```
 
 ---
@@ -118,108 +90,36 @@ TODO/
 6. **Limpar Concluídas**:
    * Ação rápida em botão dedicado para limpar tarefas antigas concluídas.
 7. **Pesquisa Instantânea**:
-   * Barra de busca rápida que surge dinamicamente ao acumular tarefas.
-8. **Feedback de Conexão**:
-   * Badge automático de "Modo Offline" caso a internet caia.
+   * Barra de busca rápida para localizar tarefas pelo texto.
 
 ---
 
 ## 💾 Persistência de Dados
 
-* Os dados são armazenados no `localStorage` sob a chave `pastel_todo_tasks_v1`.
+* Os dados são armazenados no `localStorage` sob a chave `tarefinhas_tasks_v1`.
 * Qualquer inserção, alteração ou exclusão é sincronizada instantaneamente.
-* Quando o usuário fecha o navegador, reinicia o computador ou abre o app no dia seguinte, suas tarefas permanecem salvas no próprio dispositivo.
-
----
-
-## 📱 Configuração PWA (Web & Mobile)
-
-O PWA foi configurado através de `vite-plugin-pwa` no arquivo `vite.config.ts`:
-
-* **`registerType: 'autoUpdate'`**: Atualiza automaticamente a aplicação em segundo plano quando houver novas versões.
-* **Manifest (`manifest.webmanifest`)**:
-  * `name`: Minhas Tarefas - Checklist Pastel
-  * `short_name`: Tarefas
-  * `theme_color`: `#F8FAF8`
-  * `background_color`: `#F8FAF8`
-  * `display`: `standalone` (abre sem a barra de endereços do navegador, parecendo um app nativo)
-  * `icons`: Ícones vetoriais SVG escaláveis (192x192 e 512x512) com suporte a *maskable*.
-* **Service Worker**: Faz o pré-cache automático de todos os arquivos HTML, JS, CSS e ícones, permitindo funcionamento 100% offline.
+* Quando o usuário fecha o navegador ou reinicia o computador, suas tarefas permanecem salvas.
 
 ---
 
 ## 💻 Como Executar Localmente
 
-### Pré-requisitos
-* **Node.js** (versão 18 ou superior instalada)
+```bash
+# 1. Instalar dependências
+npm install
 
-### Passos:
-1. Abra o terminal na pasta do projeto:
-   ```bash
-   cd c:\Users\ruanp\Downloads\INBEC\TODO
-   ```
-2. Instale as dependências (caso não tenha instalado):
-   ```bash
-   npm install
-   ```
-3. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-4. Acesse no navegador:
-   `http://localhost:5173/`
+# 2. Iniciar servidor local
+npm run dev
 
-5. Para gerar o build de produção:
-   ```bash
-   npm run build
-   ```
+# 3. Gerar build de produção
+npm run build
+```
 
 ---
 
 ## 🚀 Como Publicar no GitHub Pages
 
-O projeto já inclui o arquivo `.github/workflows/deploy.yml` pronto e a configuração `base: './'` no `vite.config.ts`. Para colocar no ar:
+O projeto inclui o arquivo `.github/workflows/deploy.yml` e a configuração `base: '/checklist-inbec/'` no `vite.config.ts`.
 
-1. **Crie um repositório no seu GitHub**:
-   * Acesse [github.com/new](https://github.com/new) e crie um repositório (exemplo: `todo-app`).
-
-2. **Envie os arquivos do projeto para o GitHub**:
-   No terminal, dentro da pasta do projeto, execute:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: checklist pastel com PWA e deploy no Pages"
-   git branch -M main
-   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-   git push -u origin main
-   ```
-
-3. **Ative o GitHub Pages**:
-   * No seu repositório no GitHub, clique na aba **Settings** (Configurações).
-   * No menu lateral esquerdo, clique em **Pages**.
-   * Em **Build and deployment > Source**, selecione: **GitHub Actions**.
-
-4. **Pronto!**
-   O GitHub Actions executará o build automaticamente e fornecerá o link público (exemplo: `https://seu-usuario.github.io/seu-repositorio/`).
-
----
-
-## 📲 Como Instalar no Dispositivo
-
-### No Computador (Google Chrome, Microsoft Edge, Brave):
-* Ao acessar o app, clique no botão **"Instalar App"** no topo da tela ou no ícone de instalação na barra de endereço do navegador.
-* O app será adicionado aos seus programas e poderá ser aberto em uma janela própria.
-
-### No Celular Android (Google Chrome):
-* Acesse o link publicado no celular.
-* O botão **"Instalar App"** estará disponível, ou toque no menu de 3 pontos do Chrome e selecione **"Adicionar à tela inicial"** ou **"Instalar aplicativo"**.
-
-### No iPhone / iPad (Safari):
-* Abra o link no Safari.
-* Toque no botão de **Compartilhar** (ícone de quadrado com uma seta para cima).
-* Role para baixo e selecione **"Adicionar à Tela de Início"**.
-* O ícone pastel do app aparecerá na grade de aplicativos do iOS.
-
----
-
-*Desenvolvido com foco em estética, simplicidade e experiência do usuário.*
+Cada `git push` na branch `main` executa a compilação e publicação automática no endereço:
+**https://ruanphn.github.io/checklist-inbec/**

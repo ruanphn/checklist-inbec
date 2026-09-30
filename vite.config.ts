@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'pwa-192x192.svg', 'pwa-512x512.svg'],
       manifest: {
-        name: 'Minhas Tarefas - Checklist Pastel',
-        short_name: 'Tarefas',
-        description: 'Checklist simples, leve e agradável com design em tons pastéis e suporte offline.',
+        name: 'tarefinhas',
+        short_name: 'tarefinhas',
+        description: 'Checklist simples e direto para organização de tarefas.',
         theme_color: '#F8FAF8',
         background_color: '#F8FAF8',
         display: 'standalone',

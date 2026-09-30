@@ -1,6 +1,6 @@
-# 🌿 Minhas Tarefas — Checklist Pastel
+# tarefinhas
 
-Aplicativo de lista de tarefas (*TODO list*) desenvolvido em **React 19 + TypeScript + Vite**, com visual moderno em **tons pastéis**, suporte completo a **PWA** (instalável no celular e desktop, funciona offline) e automação de publicação contínua no **GitHub Pages**.
+Aplicativo web de checklist de atividades desenvolvido em **React 19 + TypeScript + Vite**, com persistência local em `localStorage` e publicação automatizada no **GitHub Pages**.
 
 ---
 
@@ -10,7 +10,7 @@ Aplicativo de lista de tarefas (*TODO list*) desenvolvido em **React 19 + TypeSc
 # Instalar dependências
 npm install
 
-# Iniciar servidor local
+# Iniciar servidor local de desenvolvimento
 npm run dev
 
 # Gerar build de produção
@@ -19,18 +19,21 @@ npm run build
 
 ---
 
-## 📖 Documentação Completa
+## 📋 Funcionalidades
 
-Para detalhes sobre o **Design System**, acessibilidade WCAG, estrutura de arquivos, configuração do PWA e instruções detalhadas de publicação no GitHub Pages:
-
-👉 **[Consulte a DOCUMENTACAO.md](./DOCUMENTACAO.md)**
+- **Adicionar Tarefas**: campo de texto com suporte a tecla Enter.
+- **Marcar como Concluída / Pendente**: checkbox com atualização de status.
+- **Remover Tarefas**: exclusão individual e botão para limpar concluídas.
+- **Barra de Progresso**: contador e percentual de atividades finalizadas.
+- **Filtros por Aba**: Todas, Pendentes e Concluídas com contadores.
+- **Busca**: pesquisa rápida entre as tarefas cadastradas.
+- **Persistência**: dados salvos no `localStorage` do navegador.
 
 ---
 
-## 🎨 Paleta em Tons Pastéis
+## 🌐 Publicação no GitHub Pages
 
-* **Verde Sálvia Pastel**: `#84AC8A` (Ações principais e progresso)
-* **Pêssego Suave**: `#F6BD60` (Destaque de instalação PWA)
-* **Coral Pastel**: `#F28482` (Exclusão suave e offline)
-* **Off-white Suave**: `#F6F8F6` (Fundo relaxante)
-* **Grafite Escuro**: `#24332C` (Acessibilidade e contraste alto para leitura)
+O projeto conta com esteira de deploy automático via **GitHub Actions** em `.github/workflows/deploy.yml`.
+
+Deploy público disponível em:
+**https://ruanphn.github.io/checklist-inbec/**

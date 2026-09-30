@@ -1,24 +1,17 @@
 import React from 'react';
-import { CheckSquare, Download, WifiOff, Calendar } from 'lucide-react';
+import { CheckSquare, WifiOff, Calendar } from 'lucide-react';
 
 interface HeaderProps {
-  isInstallable: boolean;
   isOffline: boolean;
-  onInstall: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({
-  isInstallable,
-  isOffline,
-  onInstall,
-}) => {
+export const Header: React.FC<HeaderProps> = ({ isOffline }) => {
   const todayFormatted = new Intl.DateTimeFormat('pt-BR', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
   }).format(new Date());
 
-  // Deixa a primeira letra maiúscula
   const capitalizedDate =
     todayFormatted.charAt(0).toUpperCase() + todayFormatted.slice(1);
 
@@ -30,21 +23,9 @@ export const Header: React.FC<HeaderProps> = ({
             <CheckSquare size={24} />
           </div>
           <div>
-            <h1 className="brand-title">Minhas Tarefas</h1>
+            <h1 className="brand-title">tarefinhas</h1>
           </div>
         </div>
-
-        {isInstallable && (
-          <button
-            onClick={onInstall}
-            className="btn-install"
-            title="Instalar este aplicativo no seu dispositivo"
-            aria-label="Instalar como aplicativo PWA"
-          >
-            <Download size={14} />
-            <span>Instalar App</span>
-          </button>
-        )}
       </div>
 
       <div className="header-meta">

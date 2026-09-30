@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
 import type { Task, TaskFilter } from '../types/task';
 
-const STORAGE_KEY = 'pastel_todo_tasks_v1';
+const STORAGE_KEY = 'tarefinhas_tasks_v1';
 
 const INITIAL_TASKS: Task[] = [
   {
     id: 'demo-1',
-    text: 'Experimentar o novo app de tarefas em tons pastéis 🌿',
+    text: 'Organizar as atividades do dia',
     completed: true,
     createdAt: Date.now() - 3600000 * 3,
   },
   {
     id: 'demo-2',
-    text: 'Adicionar uma atividade pendente do dia a dia ✨',
+    text: 'Adicionar uma nova tarefa pendente',
     completed: false,
     createdAt: Date.now() - 3600000 * 2,
   },
   {
     id: 'demo-3',
-    text: 'Instalar o app no celular ou computador (PWA) 📱',
+    text: 'Marcar as tarefas conforme forem concluídas',
     completed: false,
     createdAt: Date.now() - 3600000 * 1,
   },

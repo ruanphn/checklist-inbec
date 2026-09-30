@@ -5,7 +5,6 @@ import { TaskProgress } from './components/TaskProgress';
 import { TaskForm } from './components/TaskForm';
 import { FilterTabs } from './components/FilterTabs';
 import { TaskList } from './components/TaskList';
-import { Smartphone } from 'lucide-react';
 
 export function App() {
   const {
@@ -24,15 +23,11 @@ export function App() {
     progressPercentage,
   } = useTasks();
 
-  const { isInstallable, isOffline, installApp } = usePWA();
+  const { isOffline } = usePWA();
 
   return (
     <main className="app-container">
-      <Header
-        isInstallable={isInstallable}
-        isOffline={isOffline}
-        onInstall={installApp}
-      />
+      <Header isOffline={isOffline} />
 
       <section className="main-card">
         <TaskProgress
@@ -65,12 +60,8 @@ export function App() {
 
       <footer className="app-footer">
         <p className="footer-text">
-          Minhas Tarefas &bull; Checklist em Tons Pastéis
+          tarefinhas &bull; Checklist de Atividades
         </p>
-        <div className="footer-pwa-tip">
-          <Smartphone size={13} />
-          <span>Suporte PWA: instale no celular ou desktop para usar offline</span>
-        </div>
       </footer>
     </main>
   );

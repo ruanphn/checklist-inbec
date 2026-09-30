@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN SYSTEM - TONS PASTÉIS (Verde Sálvia, Pêssego & Coral)
+   DESIGN SYSTEM & PALETA VISUAL - tarefinhas
    ============================================================ */
 
 :root {
@@ -10,7 +10,7 @@
   --bg-card-subtle: #F3F7F4;
   --bg-input: #FAFCFA;
 
-  /* Cores de Destaque Pastel */
+  /* Cores de Destaque */
   --pastel-sage: #84AC8A;
   --pastel-sage-dark: #648D6B;
   --pastel-sage-light: #EBF3ED;
